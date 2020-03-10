@@ -51,8 +51,9 @@ exceptions:
 
 formatting:
   active: true
-  android: false
+  android: true
   autoCorrect: true
+  NewLineAtEndOfFile: false
   MaximumLineLength:
     active: false
 

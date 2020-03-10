@@ -6,7 +6,6 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply from: '../install-git-hooks.gradle'
 apply from: '../jacoco.gradle'
 apply from: '../ktlint.gradle'
-apply from: '../spotless.gradle'
 apply from: '../detekt.gradle'
 
 android {

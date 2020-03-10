@@ -3,7 +3,7 @@ apply plugin: "io.gitlab.arturbosch.detekt"
 detekt {
     failFast = true
     buildUponDefaultConfig = true
-    config = files("detekt.yml")
+    config = files("../detekt.yml")
 
     reports {
         xml.enabled = true

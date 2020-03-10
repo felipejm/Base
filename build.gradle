@@ -15,7 +15,6 @@ buildscript {
         classpath Plugins.SAFE_ARGS
         classpath Plugins.JACOCO
         classpath Plugins.KTLINT
-        classpath Plugins.SPOTLESS
         classpath Plugins.DETEKT
     }
 }
