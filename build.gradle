@@ -1,0 +1,32 @@
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://ci.android.com/builds/submitted/5837096/androidx_snapshot/latest/repository" }
+    }
+
+    dependencies {
+        classpath Plugins.BUILD_TOOLS
+        classpath Plugins.KOTLIN
+        classpath Plugins.SAFE_ARGS
+        classpath Plugins.JACOCO
+        classpath Plugins.KTLINT
+        classpath Plugins.SPOTLESS
+        classpath Plugins.DETEKT
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+apply from: '../install-git-hooks.gradle'
+apply from: '../jacoco.gradle'
+apply from: '../ktlint.gradle'
+apply from: '../spotless.gradle'
+apply from: '../detekt.gradle'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.joffer.marvel"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation(Dependencies.KOTLIN)
+    implementation(Dependencies.APPCOMPAT)
+
+    implementation(Dependencies.MATERIAL)
+    implementation(Dependencies.RECYCLE_VIEW)
+    implementation(Dependencies.CONSTRAIN_LAYOUT)
+    implementation(Dependencies.SWIPE_REFRESH_LAYOUT)
+
+    implementation(Dependencies.COROUTINES)
+    implementation(Dependencies.COROUTINES_ANDROID)
+
+    implementation(Dependencies.CORE_KTX)
+    implementation(Dependencies.FRAGMENT_KTX)
+
+    implementation(Dependencies.LIFECYCLE_EXTENSIONS)
+    implementation(Dependencies.LIFECYCLE_VIEWMODEL)
+    implementation(Dependencies.NAVIGATION_FRAGMENT)
+    implementation(Dependencies.NAVIGATION_UI)
+
+    implementation(Dependencies.RETROFIT)
+    implementation(Dependencies.RETROFIT_CONVERTER)
+    implementation(Dependencies.LOGGING)
+    implementation(Dependencies.TIMBER)
+    implementation(Dependencies.MOSHI)
+    implementation(Dependencies.MOSHI_KTX)
+    implementation(Dependencies.COIL)
+
+    testImplementation(TestDependencies.JUNIT)
+    testImplementation(TestDependencies.MOCKK)
+    testImplementation(TestDependencies.COROUTINES_TEST)
+}
